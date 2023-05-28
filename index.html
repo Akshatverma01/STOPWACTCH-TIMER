@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Watch</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+</head>
+<body>
+     
+    <div class="container-fluid ">
+        <div class="row">
+            <div  class="d-flex  flex-column heading text-center  ">
+                <div class="head d-flex">
+                    <a href="index.html"><h1 id="stopwatch" >STOP-WATCH</h1></a>
+                    <a href="timer.html"><h1 id="timer"  class="text-decoration-none ">TIMER</h1></a>
+                </div>
+               
+               
+                <hr>
+              <div class="stopWatch ">
+                <div class="time align-baseline ">
+                    <span id="sec">00  </span> <span >:</span> <span id="milsec">00</span>
+                </div>
+                <div class="butn">
+                    <button id="start" onclick="Start()" class="text-white ">Start</button>
+                    <button id="stop" onclick="Stop()" class="text-white">Stop</button>
+                    <button id="reset" onclick="Reset()" class=" text-white">Reset</button>
+                </div>
+              </div>
+
+
+            </div>
+
+    </div>
+    <script>
+        let start = document.getElementById('start')
+        let stop = document.getElementById('stop')
+        let reset = document.getElementById('reset')
+        let sec= document.getElementById('sec')
+        let milsec = document.getElementById('milsec')
+        var second='00';
+        var millisecond='00';
+        var setTimer
+        let timer = document.getElementById("timer")
+
+        function Start(){
+            // clearInterval(setTimer)
+             setTimer = setInterval(mytimer, 10);
+        }
+        function mytimer(){
+            millisecond++;
+            if(millisecond<=9){
+                milsec.innerHTML= '0'+ millisecond;
+            }
+            if(millisecond>9){
+                milsec.innerHTML = millisecond;
+            }
+            if(millisecond > 99){
+                second++;
+                sec.innerHTML= second;
+                millisecond= '00'
+                milsec.innerHTML = millisecond
+            }
+            if(second>9){
+                sec.innerHTML = second;h
+            }
+        }
+
+        function Stop(){
+            clearInterval(setTimer);
+        }
+h
+        function Reset(){
+            second='00'
+            millisecond='00'
+            sec.innerHTML= second;
+            milsec.innerHTML=millisecond
+        }
+
+        function startTimer(){
+
+        }
+
+        
+
+
+    </script>
+
+</body>
+</html>
