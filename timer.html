@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="timer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="Outer">
+          <div class="wrapper">
+            <div  class="d-flex  flex-column heading pt-0  ">
+                <div class="head d-flex">
+                    <a href="index.html"><h1  >STOP-WATCH</h1></a>
+                    <a href="timer.html"><h1 id="timer"  class="text-decoration-none ">TIMER</h1></a>
+                </div>
+             </div>  
+             <hr>
+            <div class="container d-flex">
+                <div class="row">
+                    <div class="timecont d-flex 
+                    text-center align-content-center">
+
+                        <div class="days">
+                            <h5 id="days">00</h5>
+                            <h3>Days</h3>
+                        </div>
+                        <span>:</span>
+                        <div class="hour">
+                            <h5 id="hours">00</h5>
+                            <h3>Hour</h3>
+                        </div>
+                        <span>:</span>
+                        <div class="mins">
+                            <h5 id="minutes">00</h5>
+                            <h3>Min</h3>
+                        </div>
+                        <span>:</span>
+                        <div class="sec">
+                            <h5 id="seconds">00</h5>
+                            <h3>Sec</h3>
+                        </div>
+                    </div>
+
+                   
+                </div>
+            </div>
+            <div class="buttons">
+                <div class="btn-wrap">
+                    <button onclick="start()">start</button>
+                    <button onclick="stop()">stop</button>
+                </div>
+            </div>
+          </div>  
+        </div>
+        </div>  
+    </div>  
+    
+    
+    <script>
+
+        var finalDate = new Date("Dec 31,2023 23:59:59")
+        var x;
+        var start= function(){
+            x=setInterval(function(){
+            
+        
+
+            var today =  new Date().getTime()
+            var daysLeft = finalDate- today     
+
+            var days = Math.floor(daysLeft/ (1000*60*60*24))
+            var hours = Math.floor((daysLeft%(1000*60*60*24))/ (1000*60*60))
+            var minutes =  Math.floor((daysLeft%(1000*60*60))/ (1000*60))
+            var seconds = Math.floor((daysLeft%(1000*60))/ (1000))
+            document.getElementById("days").style.fontSize= "80px"
+            document.getElementById("days").style.marginTop= "0"
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML= hours;
+            document.getElementById("minutes").innerHTML=minutes;
+            document.getElementById("seconds").innerHTML=seconds;
+
+        },0)
+        }
+
+        var stop=function()
+           { 
+            // if(daysLeft<0){
+                clearInterval(x);
+                document.getElementById("days").innerHTML = "Time-Up";
+                document.getElementById("days").style.fontSize="45px";
+                document.getElementById("days").style.marginTop= "44px"
+                document.getElementById("hours").innerHTML= "00";
+                document.getElementById("minutes").innerHTML="00";
+                document.getElementById("seconds").innerHTML="00";
+            // }
+
+        }
+
+       
+
+
+    </script>
+
+
+</body>
+</html>
